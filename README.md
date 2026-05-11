@@ -5,6 +5,6 @@ This project is based on "[LaTeX Template for Master, Bachelor, Diploma and Stud
 Modifications have been made to fit the current Abgaben schema of the Uni Stuttgart.
 
 ## Roadmap
-Commands list
-Thorough README file
-Clean up the template
+- Commands list\\
+- Thorough README file
+- Clean up the template
