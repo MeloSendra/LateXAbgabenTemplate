@@ -1,0 +1,59 @@
+% LaTeX Template für Abgaben an der Universität Stuttgart
+% Autor: Sandro Speth
+% Forked Version: JSendra
+%-----------------------------------------------------------
+% Modul fuer verwendete Pakete.
+% Neue Pakete einfach einfuegen mit dem \usepackage Befehl:
+% \usepackage[options]{packagename}
+
+% Encoding and Fonts
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern}
+
+% Graphics and Colors
+\usepackage{graphicx}
+\usepackage[pdftex,hyperref,dvipsnames,table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning,arrows.meta}
+
+% Math packages
+\usepackage{amsmath,amssymb,amstext,amsthm}
+
+% Lists, URLs, etc.
+\usepackage[inline]{enumitem} % Ermöglicht ändern der enum Item Zahlen
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{pifont}
+\usepackage{tcolorbox}
+
+% Plotting
+\usepackage{pgfplots}
+
+% Code Listings
+\usepackage{listings}
+\usepackage{minted}
+
+% UML Class Diagrams
+% One Day I may fix the UML Diagrams
+%\usepackage{styles/tikz-uml}
+%\usetikzlibrary{positioning}
+
+% Algorithms
+\usepackage[lined,algonl,boxed]{algorithm2e}
+% alternative zu algorithm2e:
+%\usepackage[]{algorithm} %counter mit chapter
+%\usepackage{algpseudocode}
+
+% Geometry
+\usepackage[a4paper,lmargin={2cm},rmargin={2cm},tmargin={3.5cm},bmargin = {2.5cm},headheight = {4cm}]{geometry}
+
+% Headers
+\usepackage[headsepline]{scrlayer-scrpage} 
+\pagestyle{scrheadings} 
+
+\pgfplotsset{compat=1.18}
+

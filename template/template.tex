@@ -1,0 +1,313 @@
+% LaTeX Template für Abgaben an der Universität Stuttgart
+% Autor: Sandro Speth
+% Bei Fragen: Sandro.Speth@iste.uni-stuttgart.de
+%-----------------------------------------------------------
+% Hauptmodul des Templates: Hier können andere Dateien eingebunden werden
+% oder Inhalte direkt rein geschrieben werden.
+% Kompiliere dieses Modul um eine PDF zu erzeugen.
+
+% Dokumentenart. Ersetze 12pt, falls die Schriftgröße anzupassen ist.
+\documentclass[12pt]{scrartcl}
+% Einbinden der Pakete, des Headers und der Formatierung.
+% Mit den \include und \input Befehlen können Dateien eingebunden werden:
+% \include: Fügt einen Seitenumbruch nach dem Text ein
+% \input: Fügt KEINEN Seitenumbruch nach dem Text ein
+\input{../styles/Packages.tex}
+\input{../styles/FormatAndHeader.tex}
+
+% Counter für das Blatt und die Aufgabennummer.
+% Ersetze die Nummer des Übungsblattes und die Nummer der Aufgabe
+% den Anforderungen entsprechend.
+% Definiert werden die Counter in FormatAndHeader.tex
+% Beachte:
+% \setcounter{countername}{number}: Legt den Wert des Counters fest
+% \stepcounter{countername}: Erhöht den Wert des Counters um 1.
+\setcounter{sheetnr}{2} % Nummer des Übungsblattes
+\setcounter{exnum}{1} % Nummer der Aufgabe
+
+% Beginn des eigentlichen Dokuments
+\begin{document}
+% Nutze den \exercise{Aufgabenname} Befehl, um eine neue Aufgabe zu beginnen.
+% Möchtest du eine Aufgabe in der Nummerierung überspringen, schreibe vor der Aufgabe: \stepcounter{exnum}
+% Möchtest du die Nummer einer Aufgabe auf eine beliebige Zahl x setzen, schreibe vor der Aufgabe: \setcounter{exnum}{x}
+
+% Aufgabe 1
+\exercise{Programmiersprachen}
+
+\begin{enumerate}
+    \item Diskutieren Sie den Unterschied zwischen kompilierten und interpretierten Programmiersprachen.
+
+        \textbf{Erläuterung:}
+
+        \begin{itemize}
+            \item \textbf{Kompiliert:} Der Quellcode wird vor der Ausführung vollständig in Maschinensprache übersetzt (z.\,B. \texttt{C}, \texttt{C++}). Dadurch läuft das Programm schnell, ist aber oft an ein bestimmtes Betriebssystem oder eine Architektur gebunden.
+    
+            \item \textbf{Interpretiert:} Der Quellcode wird Zeile für Zeile oder Anweisung für Anweisung zur Laufzeit vom Interpreter ausgeführt (z.\,B. \texttt{Python}, \texttt{JavaScript}). Das erleichtert Testen und Entwicklung, aber die Ausführung ist langsamer, da die Übersetzung ständig stattfindet.
+        \end{itemize}
+
+   
+
+    \item Nennen Sie je einen Vorteil und einen Nachteil einer kompilierten bzw.
+einer interpretierten Sprache.
+
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{@{}l|l|l@{}}
+    \toprule
+        Typ & Vorteil & Nachteil \\ \midrule
+        Kompiliert & Sehr effizient und schnell & Plattformabhängig, längere Übersetzungszeit \\
+        \\
+        Interpretiert & Einfach zu testen und zu debuggen, & Langsamere Ausführung,\\
+                      & plattformunabhängig & benötigt Interpreter zur Laufzeit \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+    
+\end{enumerate}
+
+% Aufgabe 2
+\exercise{Datentypen}
+% Teilaufgaben
+\begin{enumerate}
+	\item Nennen Sie den Datentyp jeder Variable im folgenden Code-Ausschnitt.
+        
+        \lstdefinestyle{javaStyle}{
+            language=Java,
+            backgroundcolor=\color{gray!5},
+            basicstyle=\ttfamily\small,
+            keywordstyle=\color{blue!80!black}\bfseries,
+            stringstyle=\color{teal!70!black},
+            commentstyle=\color{gray!80}\itshape,
+            numbers=left,
+            numberstyle=\tiny\color{gray},
+            stepnumber=1,
+            frame=single,
+            framerule=0.5pt,
+            breaklines=true,
+            showstringspaces=false,
+            tabsize=2,
+            morekeywords={var},
+        }
+
+    \
+    \begin{flushleft}
+       \begin{lstlisting}[style=javaStyle, caption={Code-Ausschnitt zur Bestimmung der Datentypen}, xleftmargin=0pt, framexleftmargin=0pt]
+var variable1 = 10 / 3;
+var variable2 = "10";
+var variable3 = 15f;
+var variable4 = "15" + 10;
+var variable5 = 15.0;
+var variable6 = 15.0d;
+var variable7 = variable1 + variable4;
+var variable8 = variable5 + variable6;
+var variable9 = (int)(double) variable5;
+var variable10 = variable3 <= variable5;
+        \end{lstlisting}
+        \end{flushleft}        
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{@{}l|l|p{8cm}@{}}
+        \toprule
+            \textbf{Variable} & \textbf{Datentyp} & \textbf{Erklärung} \\ \midrule
+            variable1 & \texttt{int} & \texttt{10 / 3} $\rightarrow$ Ganzzahlige Division $\rightarrow$ Ergebnis \texttt{3} \\
+            variable2 & \texttt{String} & In Anführungszeichen $\rightarrow$ Text \\
+            variable3 & \texttt{float} & \texttt{15f} $\rightarrow$ \texttt{f} kennzeichnet Literal als \texttt{float} \\
+            variable4 & \texttt{String} & \texttt{"15" + 10} $\rightarrow$ String-Verkettung $\rightarrow$ \texttt{"1510"} \\
+            variable5 & \texttt{double} & \texttt{15.0} $\rightarrow$ Fließkommazahl, standardmäßig \texttt{double} \\
+            variable6 & \texttt{double} & \texttt{15.0d} $\rightarrow$ explizit als \texttt{double} markiert \\
+            variable7 & \texttt{String} & \texttt{variable1 + variable4} $\rightarrow$ \texttt{int + String} $\rightarrow$ automatische Umwandlung zu \texttt{String} \\
+            variable8 & \texttt{double} & \texttt{variable5 + variable6} $\rightarrow$ \texttt{double + double} $\rightarrow$ Ergebnis \texttt{double} \\
+            variable9 & \texttt{int} & \texttt{(int)(double) variable5} $\rightarrow$ zuerst \texttt{double}-Cast, dann \texttt{int}-Cast $\rightarrow$ \texttt{int} \\
+            variable10 & \texttt{boolean} & \texttt{variable3 <= variable5} $\rightarrow$ Vergleich $\rightarrow$ \texttt{true} oder \texttt{false} \\ \bottomrule
+        \end{tabular}
+        \end{table}
+    
+	\item Widening Conversions
+    
+    %\begin{figure}[!h]
+    %\centering
+    %\begin{tikzpicture}[roundnode/.style={circle, draw=black!60,very thick, minimum size=7mm}]
+
+    %Nodes
+    %\node[roundnode] (first) {A};
+    %\node[roundnode] (second) [right=of first]{B};
+    %\node[roundnode] (third) [right=of second]{C};
+
+    %Lines
+   % \draw[->] (first.east) -- (second.west);
+   % \draw[->] (second.east) -- (third.west);
+
+    \textbf{Widening Conversions (Java Primitive Types)}
+
+\textbf{Definition:} Eine Widening Conversion ist eine automatische Typkonvertierung in Java, bei der ein kleinerer primitiver Datentyp in einen größeren Typ konvertiert wird, ohne Datenverlust.
+
+\textbf{Graphische Darstellung:}
+
+
+\begin{tikzpicture}[node distance=1cm, >=Stealth, every node/.style={draw, rounded corners, minimum width=1.5cm, align=center}]
+    \node (byte) {byte};
+    \node (short) [right=of byte] {short};
+    \node (int) [right=of short] {int};
+    \node (long) [right=of int] {long};
+    \node (float) [right=of long] {float};
+    \node (double) [right=of float] {double};
+    \node (char) [right=of double] {char};
+
+    % Arrows
+    \draw[->] (byte) -- (short);
+    \draw[->] (short) -- (int);
+    \draw[->] (int) -- (long);
+    \draw[->] (long) -- (float);
+    \draw[->] (float) -- (double);
+
+    \draw[->] (double) -- (char);
+   % \draw[->] (int) -- (long); % optional, already in transitives
+\end{tikzpicture}
+
+
+\textbf{Erläuterung:}  
+- Kleine Datentypen in Java werden automatisch in größere Typen konvertiert. \\ 
+- Beispiel: \texttt{int -> double} ist gültig; \texttt{double -> int} ist nicht automatisch möglich.  \\
+- Transitiv abgeleitete Konvertierungen (z.\,B. \texttt{byte -> int}) müssen nicht extra gezeichnet werden.
+    
+    
+\end{enumerate}
+\newpage
+%Aufgabe 3
+\exercise{Boolesche Logik}
+
+\begin{enumerate}
+
+    %a)
+    \item Was ist die Ausgabe der Methode example1?
+
+        \begin{lstlisting}[style=javaStyle]
+public static void example1() {
+    boolean a = true;
+    boolean b = false;
+    int x = 10;
+    int y = 20;
+    int z = 30;
+        
+    if (a || b) {
+        System.out.println("C1");
+        
+            if (x < y && x < z) {
+                System.out.println("C2");
+            } else if (x < y || x < z) {
+                System.out.println("C3");
+            } else {
+                System.out.println("C4");
+            }
+        }
+}
+\end{lstlisting}
+
+    \textbf{Schritt-für-Schritt Analyse:}
+\begin{itemize}
+    \item Bedingung \texttt{a || b} $\Rightarrow$ \texttt{true || false} $\Rightarrow$ \texttt{true} $\Rightarrow$ Ausgabe: \texttt{C1}
+    \item Bedingung \texttt{x < y && x < z} $\Rightarrow$ \texttt{10 < 20 && 10 < 30} $\Rightarrow$ \texttt{true} $\Rightarrow$ Ausgabe: \texttt{C2}
+\end{itemize}
+
+\textbf{Ausgabe:}
+\begin{verbatim}
+C1
+C2
+\end{verbatim}
+
+    %b)
+    \newpage
+    \item Was ist die Ausgabe der Methode example2?
+
+    \begin{lstlisting}[style=javaStyle]
+public static void example2() {
+    int x = 10;
+    int y = 20;
+    int z = 30;
+    int i = 0;
+
+    while (i < 10) {
+        if (x / 10 > i || i * x > z) {
+            System.out.println("L1");
+            i++;
+        } else if (i > y / 3) {
+            System.out.println("L2");
+            i += 2;
+        } else {
+            System.out.println("L3");
+            i += 3;
+        }
+
+        if (i % 2 == 0) {
+            System.out.println("Even: " + i);
+            i++;
+        }
+    }
+}
+\end{lstlisting}
+
+\textbf{Schritt-für-Schritt Analyse:}
+
+\begin{tabular}{@{}c|c|c|c@{}}
+\toprule
+i & Bedingung & Ausgabe & Neuer i \\ \midrule
+0 & 10/10>0 $\Rightarrow$ 1>0 true & L1 & 1 \\
+1 & 1>1 false, 1*10>30 false $\Rightarrow$ else & L3, Even:4 & 5 \\
+5 & 1>5 false, 5*10>30 true & L1, Even:6 & 7 \\
+7 & 1>7 false, 7*10>30 true & L1, Even:8 & 9 \\
+9 & 1>9 false, 9*10>30 true & L1 & 10 (Ende) \\ \bottomrule
+\end{tabular}
+
+\textbf{Ausgabe:}
+\begin{verbatim}
+L1
+L3
+Even: 4
+L1
+Even: 6
+L1
+Even: 8
+L1
+\end{verbatim}
+
+    %c)
+    \newpage
+    \item Geben Sie die Warheitstabellen für die folgenden booleschen Ausdrücke.
+
+    1. \texttt{(!A && B) || (C && !D) || (C && B)}  
+
+\begin{tabular}{@{}c|c|c|c|c@{}}
+\toprule
+A & B & C & D & Ergebnis \\ \midrule
+F & F & F & F & F \\
+F & F & F & T & F \\
+F & F & T & F & T \\
+F & F & T & T & T \\
+F & T & F & F & T \\
+F & T & F & T & T \\
+F & T & T & F & T \\
+F & T & T & T & T \\
+T & F & F & F & F \\
+... & ... & ... & ... & ... \\ \bottomrule
+\end{tabular}\\
+
+2. \texttt{!(A || B || C || D)}\\
+\begin{tabular}{@{}c|c|c|c|c@{}}
+\toprule
+A & B & C & D & Ergebnis \\ \midrule
+F & F & F & F & T \\
+\text{else combinations} & & & & F \\ \bottomrule
+\end{tabular}\\
+
+3. \texttt{!A \&\& !B \&\& !C \&\& !D}\\
+\begin{tabular}{@{}c|c|c|c|c@{}}
+\toprule
+A & B & C & D & Ergebnis \\ \midrule
+F & F & F & F & T \\
+\text{else combinations} & & & & F \\ \bottomrule
+\end{tabular}\\
+
+\end{enumerate}
+
+% Ende des Dokuments
+\end{document}

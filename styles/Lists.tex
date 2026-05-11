@@ -1,0 +1,64 @@
+
+% Java Style lstlisting
+
+\lstdefinestyle{javaStyle}{
+            language=Java,
+            backgroundcolor=\color{gray!5},
+            basicstyle=\ttfamily\small,
+            keywordstyle=\color{blue!80!black}\bfseries,
+            stringstyle=\color{teal!70!black},
+            commentstyle=\color{gray!80}\itshape,
+            numbers=left,
+            numberstyle=\tiny\color{gray},
+            stepnumber=1,
+            frame=single,
+            framerule=0.5pt,
+            breaklines=true,
+            showstringspaces=false,
+            tabsize=2,
+            morekeywords={var},
+            xleftmargin=0pt,
+            framexleftmargin=0pt
+        }
+
+\lstnewenvironment{javaSnippet}{
+  \lstset{style=javaStyle}
+}{}
+
+
+% New list Style, i. ii. iii. ...
+\newlist{enumRoman}{enumerate}{1}
+\setlist[enumRoman]{label=\roman*.}
+
+% New list Style, a) b) ...
+\newlist{enumAlph}{enumerate}{1}
+\setlist[enumAlph]{label=\alph*)}
+
+% Java Console
+    % Colors
+
+\definecolor{consolebg}{RGB}{245,245,245}   % light gray background, like printed output
+\definecolor{consoletext}{RGB}{0,0,0}      % black text
+
+\renewcommand{\ttdefault}{lmtt} % Latin Modern Typewriter, looks nicer than default
+
+    % Define style
+    
+\lstdefinestyle{javaOutputStyle}{
+    basicstyle=\ttfamily\small\color{consoletext}, % monospaced text
+    backgroundcolor=\color{consolebg},            % light gray background
+    breaklines=true,
+    showstringspaces=false,
+    frame=none,                                   % NO horizontal lines
+    xleftmargin=0pt,
+    xrightmargin=0pt,
+    aboveskip=1em,
+    belowskip=1em,
+}
+
+\lstnewenvironment{javaOutput}{
+    \lstset{style=javaOutputStyle}
+}{}
+
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
